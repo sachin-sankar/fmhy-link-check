@@ -1,13 +1,21 @@
 "use client";
-import { AppShell, Burger, Flex, Group, Title } from "@mantine/core";
+import {
+  ActionIcon,
+  AppShell,
+  Burger,
+  Flex,
+  Group,
+  Title,
+  Tooltip,
+} from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { IconBrandGithubFilled } from "@tabler/icons-react";
 
 export default function Home() {
   const [opened, { toggle }] = useDisclosure();
 
   return (
     <AppShell
-      header={{ height: 60 }}
       navbar={{
         width: 300,
         breakpoint: "sm",
@@ -16,7 +24,7 @@ export default function Home() {
       padding="md"
     >
       <AppShell.Header>
-        <Group h="100%" px="md">
+        <Group h="100%" p="sm">
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Group justify="space-between" style={{ flex: 1 }}>
             <Flex className="items-center">
@@ -25,7 +33,26 @@ export default function Home() {
                 FMHY
               </Title>
             </Flex>
-            <Group ml="xl" gap={0} visibleFrom="sm"></Group>
+            <Group ml="xl" gap={0} visibleFrom="sm">
+              <Tooltip.Floating label="View Github">
+                <ActionIcon
+                  variant="light"
+                  size="xl"
+                  aria-label="Github Link"
+                  onClick={() => {
+                    window.open(
+                      "https://github.com/sachin-sankar/fmhy-link-check",
+                      "_blank",
+                    );
+                  }}
+                >
+                  <IconBrandGithubFilled
+                    style={{ width: "70%", height: "70%" }}
+                    stroke={1.5}
+                  />
+                </ActionIcon>
+              </Tooltip.Floating>{" "}
+            </Group>
           </Group>
         </Group>
       </AppShell.Header>
