@@ -5,6 +5,7 @@ import {
   Burger,
   Flex,
   Group,
+  NavLink,
   Title,
   Tooltip,
 } from "@mantine/core";
@@ -57,7 +58,14 @@ export default function Home() {
         </Group>
       </AppShell.Header>
 
-      <AppShell.Navbar py="md" px={4}></AppShell.Navbar>
+      <AppShell.Navbar py="md" px={4}>
+        <NavLink
+          label="Github"
+          href="https://github.com/sachin-sankar/fmhy-link-check"
+          description="View Source code on github"
+          leftSection={<IconBrandGithubFilled />}
+        />
+      </AppShell.Navbar>
 
       <AppShell.Main>
         Navbar is only visible on mobile, links that are rendered in the header
