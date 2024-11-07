@@ -3,14 +3,20 @@ import {
   ActionIcon,
   AppShell,
   Burger,
+  Button,
+  Container,
+  Divider,
   Flex,
   Group,
+  Input,
   NavLink,
+  Stack,
   Title,
   Tooltip,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconBrandGithubFilled } from "@tabler/icons-react";
+import { IconBrandGithubFilled, IconSearch } from "@tabler/icons-react";
+import VerificationForm from "./components/VerificationForm";
 
 export default function Home() {
   const [opened, { toggle }] = useDisclosure();
@@ -22,7 +28,7 @@ export default function Home() {
         breakpoint: "sm",
         collapsed: { desktop: true, mobile: !opened },
       }}
-      padding="md"
+      padding="sm"
     >
       <AppShell.Header>
         <Group h="100%" p="sm">
@@ -68,9 +74,34 @@ export default function Home() {
       </AppShell.Navbar>
 
       <AppShell.Main>
-        Navbar is only visible on mobile, links that are rendered in the header
-        on desktop are hidden on mobile in header and rendered in navbar
-        instead.
+        <Stack className="pt-24 px-10">
+          <Stack>
+            <Title>Website Verification</Title>
+            <Group>
+              <Input
+                variant="filled"
+                size="md"
+                placeholder="Enter website url"
+                className="w-1/2"
+              />
+              <Button
+                size="md"
+                className="w-min"
+                variant="gradient"
+                gradient={{ from: "grape", to: "violet", deg: 90 }}
+                rightSection={<IconSearch />}
+                fullWidth={false}
+              >
+                Run Checks
+              </Button>
+            </Group>
+          </Stack>
+          <Stack>
+            <Divider />
+
+            <VerificationForm />
+          </Stack>
+        </Stack>
       </AppShell.Main>
     </AppShell>
   );
