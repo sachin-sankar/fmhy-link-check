@@ -15,7 +15,11 @@ import {
   Tooltip,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconBrandGithubFilled, IconSearch } from "@tabler/icons-react";
+import {
+  IconBrandGithubFilled,
+  IconSearch,
+  IconWorldWww,
+} from "@tabler/icons-react";
 import VerificationForm from "./components/VerificationForm";
 
 export default function Home() {
@@ -83,6 +87,7 @@ export default function Home() {
                 size="md"
                 placeholder="Enter website url"
                 className="w-1/2"
+                leftSection={<IconWorldWww />}
               />
               <Button
                 size="md"
