@@ -86,7 +86,7 @@ export default function Home() {
               />
               <Button
                 size="md"
-                className="w-min"
+                className="w-min hover:scale-110 transition-all"
                 variant="gradient"
                 gradient={{ from: "grape", to: "violet", deg: 90 }}
                 rightSection={<IconSearch />}
@@ -98,7 +98,6 @@ export default function Home() {
           </Stack>
           <Stack>
             <Divider />
-
             <VerificationForm />
           </Stack>
         </Stack>
